@@ -5,7 +5,7 @@
 
 exp_name = "exp_htsat_esc_50"  # the saved ckpt prefix name of the model
 workspace = "./workspace_ADS_v2"  # the folder of your code
-dataset_path = "workspace/mfg_robot"  # the dataset path
+dataset_path = "workspace_ADS_v2/mfg_robot"  # the dataset path
 desed_folder = ""  # the desed file
 
 dataset_type = "esc-50"  # "audioset" "esc-50" "scv2"
