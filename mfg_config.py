@@ -16,7 +16,7 @@ loss_type = "clip_ce"  #
 # AudioSet & SCV2: "clip_bce" |  ESC-50: "clip_ce"
 
 # trained from a checkpoint, or evaluate a single model
-resume_checkpoint = "./workspace/ckpt/htsat_audioset_pretrain.ckpt"
+resume_checkpoint = "./workspace_ADS_v2/ckpt/htsat_audioset_pretrain.ckpt"
 # resume_checkpoint = None
 # "/home/Research/model_backup/AudioSet/HTSAT_AudioSet_Saved_1.ckpt"
 
