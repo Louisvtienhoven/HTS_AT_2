@@ -308,3 +308,43 @@ class DESED_Dataset(Dataset):
 
     def __len__(self):
         return self.total_size
+
+class MFG_Dataset(Dataset):
+    def __init__(self, dataset, config, eval_mode = False):
+        self.dataset = dataset
+        self.config = config
+        self.eval_mode = eval_mode
+        if self.eval_mode:
+            self.dataset = self.dataset[self.config.esc_fold]
+        else:
+            temp = []
+            for i in range(len(self.dataset)):
+                if i != config.esc_fold:
+                    temp += list(self.dataset[i])
+            self.dataset = temp
+        self.total_size = len(self.dataset)
+        self.queue = [*range(self.total_size)]
+        logging.info("total dataset size: %d" %(self.total_size))
+        if not eval_mode:
+            self.generate_queue()
+
+    def generate_queue(self):
+        random.shuffle(self.queue)
+        logging.info("queue regenerated:%s" %(self.queue[-5:]))
+
+
+    #Modification to not force the waveform to a fixed length
+    def __getitem__(self, index):
+        p = self.queue[index]
+        # Return the raw waveform (variable-length, multi-channel)
+        waveform = self.dataset[p]["waveform"]
+        data_dict = {
+            "audio_name": self.dataset[p]["name"],
+            "waveform": waveform,  # shape: [3, time]
+            "real_len": len(waveform),  # original time length
+            "target": self.dataset[p]["target"]
+        }
+        return data_dict
+
+    def __len__(self):
+        return self.total_size
