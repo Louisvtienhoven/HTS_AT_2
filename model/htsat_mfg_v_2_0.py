@@ -463,7 +463,7 @@ class HTSAT_Swin_Transformer(nn.Module):
         self.spectrogram_extractor.pad_mode = "constant"
         self.spectrogram_extractor.stft.pad_mode = "constant"
         self.logmel_extractor.pad_mode = "constant"
-        self.logmel_extractor.stft.pad_mode = "constant"
+        #self.logmel_extractor.stft.pad_mode = "constant"
 
         # Spec augmenter
         self.spec_augmenter = SpecAugmentation(time_drop_width=64, time_stripes_num=2,
