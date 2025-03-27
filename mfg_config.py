@@ -3,7 +3,7 @@
 # HTS-AT: A HIERARCHICAL TOKEN-SEMANTIC AUDIO TRANSFORMER FOR SOUND CLASSIFICATION AND DETECTION
 # The configuration for training the model
 
-exp_name = "exp_htsat_esc_50"  # the saved ckpt prefix name of the model
+exp_name = "exp_htsat_mfg"  # the saved ckpt prefix name of the model
 workspace = "./workspace_ADS_v2"  # the folder of your code
 dataset_path = "workspace_ADS_v2/mfg_robot"  # the dataset path
 desed_folder = ""  # the desed file
